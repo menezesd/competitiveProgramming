@@ -1,12 +1,12 @@
 from vpython import *
 import sys
-  
+
 print("This is the name of the program:", sys.argv[0])
-  
-print("Argument List:", str(sys.argv))
+
+print("Argument List:", sys.argv)
 
 def point(i):
-    return tuple(float(next(i)) for j in range(3))
+    return tuple(float(next(i)) for _ in range(3))
 def getcolor(i):
     return getattr(color, next(i).strip())
 def PT(i):
@@ -24,7 +24,7 @@ def POLY(i):
     face = [None]*(n-2)
     mycolor = getcolor(i)
     for j in range(1,n-1):
-        
+
         face[j-1] = triangle(
           v0=vertex( pos=vec(*l[0]),opacity = 0.4, color = mycolor),
           v1=vertex( pos=vec(*l[j]),opacity = 0.4, color = mycolor),
@@ -62,7 +62,6 @@ with open("convexhull.txt") as ss:
         else:
             tmp = primitives[name](i)
             active.append(tmp)
-            pass
 p = -1
 def step(b):
     global p
